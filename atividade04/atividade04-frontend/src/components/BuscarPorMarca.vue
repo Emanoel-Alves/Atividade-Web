@@ -49,12 +49,12 @@ export default {
       marca: "",
       carros: null,
       baseURI: "http://localhost:8080/atividade04-backend/api/carros",
-      // baseURICesta: "http://localhost:8080/ichiraku-back-and/api/cestas",
+     
     };
   },
   methods: {
     filterCarro() {
-      // console.log(this.idProduto);
+      
       this.$http.get(this.baseURI + "/?marca=" + this.marca).then((result) => {
         this.carros = result.data;
         console.log(this.carros);

@@ -59,7 +59,7 @@ public class CarroService extends HttpServlet {
 
 		// GET BY MARCA
 		if (request.getParameter("marca") != null) {
-			System.out.println("olaaa marca" + request.getParameter("marca"));
+
 			List<Carro> carros = CarroDAO.getCarroByMarca(request.getParameter("marca"));
 			try {
 				JSONArray jArray = new JSONArray();
@@ -89,7 +89,7 @@ public class CarroService extends HttpServlet {
 
 		// GET BY QUANTIDADE
 		if (request.getParameter("quantidade") != null) {
-			System.out.println("olaaa");
+			
 			List<Carro> carros = CarroDAO.getCarroByQuantidade(Integer.parseInt(request.getParameter("quantidade")));
 			
 			try {
@@ -136,7 +136,7 @@ public class CarroService extends HttpServlet {
 
 				jArray.put(jsonObject);
 			}
-			System.out.println("todos");
+			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(jArray.toString());
@@ -148,7 +148,7 @@ public class CarroService extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("entrou no post");
+		
 		StringBuffer jb = new StringBuffer();
 		String line = null;
 		try {

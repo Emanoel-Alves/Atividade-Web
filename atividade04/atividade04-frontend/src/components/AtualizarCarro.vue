@@ -4,7 +4,7 @@
     <div class="centralizar">
       <form style="width: 100%">
         <div class="form-group">
-          <label for="id">Nome do Carro</label>
+          <label for="id">ID do Carro</label>
           <input
             v-model="idCarro"
             type="text"
@@ -131,7 +131,6 @@ export default {
       carroUpdate: null,
       carroAnterior: null,
       baseURI: "http://localhost:8080/atividade04-backend/api/carros",
-      // baseURICesta: "http://localhost:8080/ichiraku-back-and/api/cestas",
     };
   },
   methods: {

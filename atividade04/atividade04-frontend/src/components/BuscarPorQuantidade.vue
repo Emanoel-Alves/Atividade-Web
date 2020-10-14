@@ -53,7 +53,6 @@ export default {
   },
   methods: {
     filterCarro() {
-      // console.log(this.idProduto);
       this.$http
         .get(this.baseURI + "/?quantidade=" + this.quantidade)
         .then((result) => {

@@ -1,6 +1,7 @@
 <template>
   <div class="buscar">
     <h1>Buscar po ID</h1>
+     <div class="centralizar">
     <form style="width: 100%">
       <div class="form-group">
         <label for="id">ID do Carro</label>
@@ -35,6 +36,7 @@
       </div>
     </form>
   </div>
+  </div>
 </template>
 
 <script>
@@ -45,12 +47,10 @@ export default {
       carro: null,
       idCarro: "",
       baseURI: "http://localhost:8080/atividade04-backend/api/carros",
-      // baseURICesta: "http://localhost:8080/ichiraku-back-and/api/cestas",
     };
   },
   methods: {
     getCarro() {
-      // console.log(this.idProduto);
       this.$http.get(this.baseURI + "/" + this.idCarro).then((result) => {
         this.carro = result.data;
       });
@@ -65,5 +65,8 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+.centralizar {
+   width: 50%;
 }
 </style>

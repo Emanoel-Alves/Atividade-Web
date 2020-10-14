@@ -43,12 +43,10 @@ export default {
       idCarro: "",
       deletado: false,
       baseURI: "http://localhost:8080/atividade04-backend/api/carros",
-      // baseURICesta: "http://localhost:8080/ichiraku-back-and/api/cestas",
     };
   },
   methods: {
     deleteCarro() {
-      // console.log(this.idProduto);
       this.$http.delete(this.baseURI + "/" + this.idCarro).then((result) => {});
       this.deletado = true;
     },

@@ -57,6 +57,28 @@
       <button type="button" @click="postCarro()" class="btn btn-primary">
         Cadastrar Carro
       </button>
+
+      <div v-if="newCarro != null" style="width: 100%">
+          <div
+            style="
+              margin-top: 20px;
+              border: solid 1px;
+              border-color: #111;
+              padding-top: 13px;
+            "
+          >
+            <strong>Cadastrado</strong>
+            <p>
+              <strong>ID: </strong> {{ newCarro.id }}
+              <strong>Nome: </strong> {{ newCarro.nome }}
+              <strong>Marca: </strong> {{ newCarro.marca }}
+              <strong>Ano de Frabicação: </strong>
+              {{ newCarro.anoFabricacao }} <strong>Ano do Modelo: </strong>
+              {{ newCarro.anoModelo }} <strong>Data de Venda: </strong>
+              {{ newCarro.dataVenda }}
+            </p>
+          </div>
+        </div>
     </form>
   </div>
 </template>
@@ -72,8 +94,8 @@ export default {
       anoFabricacao: "",
       anoModelo: "",
       carro: {},
+      newCarro: null,
       baseURI: "http://localhost:8080/atividade04-backend/api/carros",
-      // baseURICesta: "http://localhost:8080/ichiraku-back-and/api/cestas",
     };
   },
   methods: {
@@ -85,6 +107,7 @@ export default {
       this.carro.dataVenda = this.dataVenda;
 
       this.$http.post(this.baseURI, this.carro).then((result) => {
+        this.newCarro = result.data;
         console.log(result.data);
       });
     },

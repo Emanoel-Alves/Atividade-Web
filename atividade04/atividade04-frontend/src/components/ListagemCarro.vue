@@ -36,12 +36,10 @@ export default {
     return {
       carros: {},
       baseURI: "http://localhost:8080/atividade04-backend/api/carros",
-      // baseURICesta: "http://localhost:8080/ichiraku-back-and/api/cestas",
     };
   },
   methods: {
     getCarros() {
-      // console.log(this.idProduto);
       this.$http.get(this.baseURI).then((result) => {
         this.carros = result.data;
       });
