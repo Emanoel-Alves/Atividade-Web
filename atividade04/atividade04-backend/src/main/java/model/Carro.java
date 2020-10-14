@@ -6,14 +6,16 @@ public class Carro {
 	private String nome;
 	private String marca;
 	private String anoModelo;
+	private String anoFabricao;
 	private String dataVenda;
 	
-	public Carro(int id, String nome, String marca, String anoModelo, String dataVenda) {
+	public Carro(int id, String nome, String marca, String anoModelo, String dataVenda, String anoFabricacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.marca = marca;
 		this.anoModelo = anoModelo;
+		this.anoFabricao = anoFabricacao;
 		this.dataVenda = dataVenda;
 	}
 
@@ -47,6 +49,14 @@ public class Carro {
 
 	public void setAnoModelo(String anoModelo) {
 		this.anoModelo = anoModelo;
+	}
+	
+	public String getAnoFabricao() {
+		return anoFabricao;
+	}
+
+	public void setAnoFabricao(String anoFabricao) {
+		this.anoFabricao = anoFabricao;
 	}
 
 	public String getDataVenda() {

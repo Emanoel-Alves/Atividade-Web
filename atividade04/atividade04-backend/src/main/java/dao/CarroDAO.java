@@ -9,17 +9,20 @@ import model.Carro;
 
 public class CarroDAO {
 	private static final Map<Integer, Carro> userMap = new HashMap<Integer, Carro>();
-    private static int i = 2;
+    private static int i = 4;
  
     static {
         initCarros();
     }
  
     private static void initCarros() {
-        Carro carro1 = new Carro(1, "Corola", "Toyota", "2020", "27/10/2020");
-       
+        Carro carro1 = new Carro(1, "Toyota", "Corola", "2020", "10/10/2020", "27/10/2020");
+        Carro carro2 = new Carro(2, "UNO", "Fiat", "2020", "10/10/2020", "27/10/2020");
+        Carro carro3 = new Carro(3, "Cromado", "Corola", "2020", "10/10/2020", "27/10/2020");
 
         userMap.put(carro1.getId(), carro1);
+        userMap.put(carro2.getId(), carro2);
+        userMap.put(carro3.getId(), carro3);
         
     }
  
@@ -27,27 +30,47 @@ public class CarroDAO {
         return userMap.get(id);
     }
  
-//    public static Carro getCarrBylogin(String login) {
-//        List<User> list = getAllUsers();
-// 
-//        for (User user : list) {
-//            if (user.getLogin().equals(login)) {
-//                return user;
-//            }
-//        }
-// 
-//        return null;
-//    }
+    public static List<Carro> getCarroByMarca(String marca) {
+        List<Carro> list = getAllCarros();
+        List<Carro> carros = new ArrayList<>();
+        
+        for (Carro carro : list) {
+//        	System.out.println(carro.getMarca());
+            if (carro.getMarca().equals(marca)) {
+//            	System.out.println(carro.getMarca().equals(marca));
+                carros.add(carro);
+            }
+        }
+        System.out.println(carros.toString());
+        return carros;
+    }
+    
+    public static List<Carro> getCarroByQuantidade(int quantidade) {
+        List<Carro> list = getAllCarros();
+        List<Carro> carros = new ArrayList<>();
+        int i = 0;
+        
+        for (Carro carro : list) {
+            if (i < quantidade) {
+                carros.add(carro);
+                i++;
+            }else {
+            	return carros;
+            }
+        }
  
-    public static Carro addCarro(String nome, String marca, String anoModelo, String dataVenda) {
-        Carro carro = new Carro(i, nome, marca, anoModelo, dataVenda);
+        return carros;
+    }
+ 
+    public static Carro addCarro(String nome, String marca, String anoModelo, String dataVenda, String anoFabricacao) {
+        Carro carro = new Carro(i, nome, marca, anoModelo, dataVenda, anoFabricacao);
         userMap.put(carro.getId(), carro);
         i++;
         return carro;
     }
  
-    public static Carro updateCarro(int id, String nome, String marca, String anoModelo, String dataVenda) {
-        Carro carro = new Carro(id,nome, marca, anoModelo, dataVenda);
+    public static Carro updateCarro(int id, String nome, String marca, String anoModelo, String anoFabricacao, String dataVenda) {
+        Carro carro = new Carro(id,nome, marca, anoModelo , dataVenda, anoFabricacao);
         userMap.put(carro.getId(), carro);
         return carro;
     }
